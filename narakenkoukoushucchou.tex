@@ -1,0 +1,136 @@
+\documentclass[paper=a4paper,12pt]{jlreq}
+\usepackage{luatexja}
+
+
+%パッケージの読み込み
+\usepackage{multirow}
+\usepackage{array}
+\usepackage[top=15truemm,left=10truemm,right=10truemm]{geometry}
+\usepackage{tabularx}
+\usepackage{arrayjobx}
+\newarray\Data
+\readarray{Data}%
+{1gakkou&2namae&3bangou&4jusho&5小型\cdot フィット\cdot bangou&6nengappi&7nengappi&8nengappi&9\和暦\today&10youmu&11nenngappi&12jikan&13nengappi&14jikan&15gakkoujitaku&16jusho&17jusho&18jusho&19jusho&20jusho&21gakkoujitaku&22youmusaki&23jikan&24jikan&25chokkouchokki}
+
+\renewcommand*{\arraystretch}{1.7}%セルの中身と線の間の空白
+\linespread{0.5}\selectfont%セル内の行間
+\pagestyle{empty}%ページ番号いらない　
+\newcommand{\ctext}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}%丸印を綺麗に表示するためのもの\ctext{印}で表示される。
+\begin{document}
+%表部分スタート
+\begin{table}[htbp]
+	\centering
+	{\Large 旅行伺兼旅行命令簿　（私有自動車等使用旅行用）}
+	\vskip 0.2cm	
+%所属、氏名等{{{
+	\begin{tabularx}{\textwidth}{@{\vrule width1pt \ }>{\centering}m{2.2cm}|>{\centering\arraybackslash}X|>{\centering}m{4cm}|>{\centering\arraybackslash}X@{\ \vrule width1pt}}
+\noalign{\hrule height 1pt}%太い線を引く方法
+所　　属&奈良県\Data(1)高等学校&職務の級（旅費級）&教育職　級\\
+\hline
+職・氏名&教諭　\Data(2) \ctext{印}&職　員　コ ー ド&\Data(3)\\
+\hline
+住 居 地&\multicolumn{3}{c@{\ \vrule width1pt}}{\Data(4)}\\
+\noalign{\hrule height 1pt}%太い線を引く方法
+\end{tabularx}
+%所属、氏名等おわり}}}
+\vskip 0.2cm
+%車両情報{{{
+\begin{tabularx}{\textwidth}{@{\vrule width1pt \ }>{\centering}m{3cm}|m{5cm}|>{\centering\arraybackslash}m{3cm}|m{6.355cm}@{\ \vrule width1pt}}
+\noalign{\hrule height 1pt}%太い線を引く方法
+{\footnotesize 車種\cdot 車名\cdot 車両番号}&{\footnotesize \Data(5)}&{\footnotesize 運転免許証 種類\newline\hfill 有効期限}&{\footnotesize 普通\newline \Data(6)}\\
+%\noalign{\hrule height 1pt}%太い線を引く方法
+\hline
+{\footnotesize 車検証有効期限}&{\small \Data(7)}&{\footnotesize 任意保険　内容\newline\hfill 有効期限}&{\footnotesize 対人：無制限　対物：無制限\newline \Data(8)}\\
+\noalign{\hrule height 1pt}%太い線を引く方法
+\end{tabularx}
+%車両情報おわり}}}
+\vskip 0.2cm
+%旅行期間{{{
+\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering}X|>{\centering}X|c|}%最後がXだとうまくいかない。
+\hline
+\multicolumn{5}{|c|}{\footnotesize 旅行命令及び私有自動車等使用承認決済欄}&\multirow{2}{*}{\scriptsize 宿泊数承認印}&\multirow{2}{*}{\scriptsize 命令変更確認印}&\multirow{2}{*}{\small 精算確認印}\\
+\cline{1-5}
+{\scriptsize 旅行命令権者}&{\small 教　　頭}&{\small 事 務 長}&&&&&\\
+\hline
+ & & & & &要　泊& & \\
+ & & & & &  & & \\
+ & & & & &  & & \\
+\hline
+{\tiny 旅行命令年月日}&\multicolumn{2}{c|}{\Data(9)}&{\tiny 命令変更年月日}&\multicolumn{2}{c|}{令和　年　月　日}&入力済&\\
+\noalign{\hrule height 1pt}%太い線を引く方法
+\multicolumn{2}{@{\vrule width1pt \ }c|}{\multirow{2}{*}{旅　行　期　間}}&\multicolumn{2}{c|}{運転者職氏名}&\multicolumn{2}{c|}{同乗者職氏名}&\multicolumn{2}{c@{\ \vrule width1pt}}{用務}\\
+\cline{3-8}
+\multicolumn{2}{@{\vrule width1pt \ }c|}{ }&\multicolumn{2}{c|}{\Data(2)}&\multicolumn{2}{c|}{ }&\multicolumn{2}{c@{\ \vrule width1pt}}{\multirow{2}{*}{\footnotesize \Data(10)}}\\ 
+\cline{1-6}
+\multicolumn{2}{@{\vrule width1pt \ }c|}{\multirow{5}{*}{\parbox{4cm}{\small \Data(11)\par \Data(12)から\par \Data(13)\par \Data(14)まで}} }&\multicolumn{2}{c|}{出発地　\Data(15)}&{\tiny 他の交通機関}&泊数&\multicolumn{2}{c@{\ \vrule width1pt}}{ }\\
+\cline{3-8}
+\multicolumn{2}{@{\vrule width1pt \ }c|}{ }&\multicolumn{2}{l|}{1.\Data(16)}& & &\multirow{2}{*}{\small 本人精算印} &\\
+	\cline{3-6}
+	\multicolumn{2}{@{\vrule width1pt \ }c|}{ }&\multicolumn{2}{l|}{2.\Data(17)}& & & &\\
+	\cline{3-8}
+	\multicolumn{2}{@{\vrule width1pt \ }c|}{ }&\multicolumn{2}{l|}{3.\Data(18)}& & &\multicolumn{2}{c|}{精算による過不足}\\
+	\cline{3-8}
+	\multicolumn{2}{@{\vrule width1pt \ }c|}{ }&\multicolumn{2}{l|}{4.\Data(19)}& & &あり&なし\\
+	\hline
+	\multicolumn{2}{@{\vrule width1pt \ }c|}{\multirow{2}{*}{精算払・概算払}}&\multicolumn{2}{l|}{5.\Data(20)}& & &\multicolumn{2}{c|}{精算確認年月日}\\
+	\cline{3-8}
+	\multicolumn{2}{@{\vrule width1pt \ }c|}{ }&\multicolumn{2}{c|}{帰着地　\Data(21)}& & &\multicolumn{2}{c|}{令和　年　月　日}\\
+\noalign{\hrule height 1pt}%太い線を引く方法
+\end{tabularx}
+
+%旅行期間おわり}}}
+\vskip 0.2cm
+%備考{{{
+\begin{tabularx}{\textwidth}{@{\vrule width1pt \ }>{\centering}m{2.2cm}|X@{\ \vrule width1pt}}
+\noalign{\hrule height 1pt}%太い線を引く方法
+\multirow{2}{*}{備考}&用務先:　\Data(22)\hfill 用務地滞在予定時間:　\Data(23) - \Data(24)\hfill 　\\
+		     &\\
+		  &\hfill 　\Data(25)　\\
+\noalign{\hrule height 1pt}%太い線を引く方法
+\end{tabularx}
+%備考おわり}}}
+%\end{table}
+\vskip 0.4cm
+\dotfill
+\vskip 0.4cm
+\Large \centering 復　　命　　書
+\vskip 0.2cm
+\normalsize
+%はんこ{{{
+	\begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}m{5cm}|}%6マス
+\hline
+校   長&教   頭&事務長& &出勤簿&事務処理欄\\
+\hline
+&&&&&\\
+&&&&&\\
+&&&&&\\
+\hline
+\end{tabularx}
+%はんこおわり}}}
+\vskip 0.2cm
+\raggedright
+　命により出張しました概要を下記の通り復命します。
+\vskip 0.2cm
+\hfill 職　教諭　　　氏名　\Data(2)　\ctext{印}　
+\vskip 0.2cm
+\centering
+%報告{{{
+\begin{tabularx}{\textwidth}{|@{\vrule width1pt \ }>{\centering}m{2cm}|X@{\ \vrule width1pt}|}
+\noalign{\hrule height 1pt}%太い線を引く方法
+\multirow{2}{*}{旅行期間}&令和6年　　月　　日（　　）　　時　　分から\\
+&令和6年　　月　　日（　　）　　時　　分まで\\
+\hline
+\multirow{3}{*}{報告事項}&\\
+	&\\
+	&\\
+\noalign{\hrule height 1pt}%太い線を引く方法
+\end{tabularx}
+%報告おわり}}}
+
+\raggedright
+\vskip 0.2cm
+
+　※　復命書は復校後3日以内に提出してください。
+\end{table}
+
+\end{document}
